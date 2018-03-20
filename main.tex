@@ -8,6 +8,7 @@
 \usepackage[catalan]{babel} % Idioma del document en català.
 \usepackage[tmargin=3cm, lmargin=3cm, rmargin=3cm, bmargin=3cm, marginparsep=0.3cm, marginparwidth=2.4cm]{geometry}
 \usepackage[sorting=none]{biblatex} % Per la bibliografia a més que els números surtin per l'ordre en què apareixen, no en l'ordre que s'ha citat al llarg del document.
+\usepackage{import}
 
 %\setmainfont{Arial}
 
@@ -15,7 +16,7 @@
 
 %DEFINICIONS per tal de no haver d'escriure-ho cada vegada.
 
-\def\upf{Universitat Pompeu Fabra }
+\input{Acronyms.tex}
 
 %BIBLIOGRAFIA
 
@@ -27,7 +28,7 @@
 
 \author{Alumne \\ Tutor}
 
-\date{\today \\ \upf}
+\date{\today \\ \acl{upf}}
 
 % COMENÇA EL REPORT
 
@@ -44,6 +45,11 @@
 \input{Chapters/Agraiments} % Carpeta i arxiu el qual es vol afegir, així el main només queda amb l'esquelet i el contingut va repartir en els diferents arxius.
 
 \tableofcontents % Taula de continguts
+
+\cleardoublepage
+
+\printacronyms[include-classes=abbrev,name=Abbreviations,heading=chapter*]
+\addcontentsline{toc}{chapter}{Abbreviations}
 
 \cleardoublepage
 
