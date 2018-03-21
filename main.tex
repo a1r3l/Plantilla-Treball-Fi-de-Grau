@@ -1,15 +1,16 @@
 \documentclass[a4paper,12pt,twoside]{book}
 
 %\usepackage{fontspec} Packages
+\usepackage[catalan]{babel} % Idioma del document en català.
 \usepackage[utf8]{inputenc}
 \usepackage{titlesec}
 \usepackage{emptypage} % Per tal que no surtin els números en les pàgines en blanc.
 \usepackage{blindtext}
-\usepackage[catalan]{babel} % Idioma del document en català.
 \usepackage[tmargin=3cm, lmargin=3cm, rmargin=3cm, bmargin=3cm, marginparsep=0.3cm, marginparwidth=2.4cm]{geometry}
 \usepackage[sorting=none]{biblatex} % Per la bibliografia a més que els números surtin per l'ordre en què apareixen, no en l'ordre que s'ha citat al llarg del document.
-\usepackage{import}
 \usepackage{titling}
+
+\usepackage{import}
 
 %\setmainfont{Arial}
 \usepackage{graphicx}
@@ -26,16 +27,20 @@
 
 %Titols
 
+
+
+
+\begin{document}
 \title{\textbf{Títol}}
-
 \author{Alumne \\ Tutor}
-
-\date{\today \\ \acl{upf}}
-
+\renewcommand\maketitlehookd{\begin{center}\vskip1.5cm
+\includegraphics[scale=0.7]{logo_upf.png} \end{center}}
+%\predate{\begin{center}}
+\date{\today  \\\acl{upf} }
+%\postdate{\\\acl{upf} \vskip1.5cm \includegraphics[scale=0.7]{logo_upf.png}\end{center}}
 % COMENÇA EL REPORT
 
-\postdate{\\ \vskip1.5cm \includegraphics[scale=0.7]{logo_upf.png}}
-\begin{document}
+
 
 \maketitle % Crea la pàgina del títol amb les etiquetes de sobra, \title, \author i \date.
 
@@ -71,8 +76,8 @@
 
 \chapter{Introducció} % Ja es posen en la Taula de continguts.
 \input{Chapters/Introduccio}
+\addcontentsline{toc}{chapter}{Bibliografia}
 
 \printbibliography
-\addcontentsline{toc}{chapter}{Bibliografia}
 
 \end{document}
