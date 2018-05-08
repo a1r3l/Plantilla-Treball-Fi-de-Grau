@@ -3,17 +3,24 @@
 %\usepackage{fontspec} Packages
 \usepackage[catalan]{babel} % Idioma del document en català.
 \usepackage[utf8]{inputenc}
-\usepackage{titlesec}
 \usepackage{emptypage} % Per tal que no surtin els números en les pàgines en blanc.
 \usepackage{blindtext}
 \usepackage[tmargin=3cm, lmargin=3cm, rmargin=3cm, bmargin=3cm, marginparsep=0.3cm, marginparwidth=2.4cm]{geometry}
 \usepackage[sorting=none]{biblatex} % Per la bibliografia a més que els números surtin per l'ordre en què apareixen, no en l'ordre que s'ha citat al llarg del document.
-\usepackage{titling}
 
 \usepackage{import}
 
 %\setmainfont{Arial}
 \usepackage{graphicx}
+
+\usepackage{subfiles} %Per importar la pàgina del títol
+
+\usepackage{fancyhdr} %Que quedi maco
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\leftmark}
+\fancyhead[RE,LO]{\thepage}
 
 \pagenumbering{gobble}
 
@@ -25,25 +32,11 @@
 
 \addbibresource{bibliografia.bib}
 
-%Titols
-
-
-
 
 \begin{document}
-\title{\textbf{Títol}}
-\author{Alumne \\ Tutor}
-\renewcommand\maketitlehookd{\begin{center}\vskip1.5cm
-%\includegraphics[scale=0.7]{logo_upf.png} %El fitxer del logotip de la universitat no està posat encara
-\end{center}}
-%\predate{\begin{center}}
-\date{\today  \\\acl{upf} }
-%\postdate{\\\acl{upf} \vskip1.5cm \includegraphics[scale=0.7]{logo_upf.png}\end{center}}
-% COMENÇA EL REPORT
 
-
-
-\maketitle % Crea la pàgina del títol amb les etiquetes de sobra, \title, \author i \date.
+%TITOL
+\subfile{Titol}
 
 \cleardoublepage % Neteja de pàgines, en ser un llibre ja la deixa en blanc en cas de necessitat.
 
