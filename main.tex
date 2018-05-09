@@ -24,6 +24,10 @@
 
 \pagenumbering{gobble}
 
+%COMANDS comandes personalitzades
+
+\input{Comands.tex}
+
 %DEFINICIONS per tal de no haver d'escriure-ho cada vegada.
 
 \input{Acronyms.tex}
@@ -43,7 +47,7 @@
 \pagenumbering{Roman} % Nombre de pàgina en números Romans.
 
 \chapter*{Agraïments} %* Per tal que no surti en el Table of contents, així la primera secció començarà amb la Introducció.
-\addcontentsline{toc}{chapter}{Agraïments} % Per tal d'afegir a la Table of contents, amb el nom Agraïments.
+\capitol{Agraïments} %Comanda nova, mirar a l'arxiu de Comands
 \input{Chapters/Agraiments} % Carpeta i arxiu el qual es vol afegir, així el main només queda amb l'esquelet i el contingut va repartir en els diferents arxius.
 
 \tableofcontents % Taula de continguts
@@ -52,17 +56,17 @@
 \cleardoublepage
 
 \listoffigures
-\addcontentsline{toc}{chapter}{Índex de figures}
+\capitol{Índex de figures}
 
 \cleardoublepage
 
 \listoftables
-\addcontentsline{toc}{chapter}{Índex de taules}
+\capitol{Índex de taules}
 
 \cleardoublepage
 
 \printacronyms[include-classes=abbrev,name=Abbreviations,heading=chapter*]
-\addcontentsline{toc}{chapter}{Abbreviations}
+\capitol{Abbreviations}
 
 \cleardoublepage
 
@@ -70,8 +74,8 @@
 
 \chapter{Introducció} % Ja es posen en la Taula de continguts.
 \input{Chapters/Introduccio}
-\addcontentsline{toc}{chapter}{Bibliografia}
 
 \printbibliography
+\capitol{Bibliografia}
 
 \end{document}
