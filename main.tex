@@ -7,15 +7,17 @@
 \usepackage{blindtext}
 \usepackage[tmargin=3cm, lmargin=3cm, rmargin=3cm, bmargin=3cm, marginparsep=0.3cm, marginparwidth=2.4cm]{geometry}
 \usepackage[sorting=none]{biblatex} % Per la bibliografia a més que els números surtin per l'ordre en què apareixen, no en l'ordre que s'ha citat al llarg del document.
-
+\usepackage{svg} %Imporat imatges amb l'extenció svg
+\usepackage{pdfpages} %Importar la portada en pdf
+\usepackage{hyperref} %Les referències quan cliques funcionen
 \usepackage{import}
-
-%\setmainfont{Arial}
 \usepackage{graphicx}
-
 \usepackage{subfiles} %Per importar la pàgina del títol
-
 \usepackage{fancyhdr} %Que quedi maco
+\usepackage{nameref} %Referències amb el nom que s'ha posat
+\usepackage{algorithm} 
+\usepackage[noend]{algpseudocode}
+
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -39,6 +41,8 @@
 
 \begin{document}
 
+\includepdf[pages=-]{portada}
+
 %TITOL
 \subfile{Titol}
 
@@ -52,28 +56,25 @@
 
 \tableofcontents % Taula de continguts
 
-
-\cleardoublepage
-
 \listoffigures
 \capitol{Índex de figures}
-
-\cleardoublepage
 
 \listoftables
 \capitol{Índex de taules}
 
-\cleardoublepage
+\listofalgorithms
+\capitol{List of algorithms}
 
-\printacronyms[include-classes=abbrev,name=Abbreviations,heading=chapter*]
+\printacronyms[include-classes=abbrev,name=Notations,heading=chapter*]
 \capitol{Abbreviations}
-
-\cleardoublepage
 
 \pagenumbering{arabic} % Nombre de la pàgina en números Àrabs.
 
 \chapter{Introducció} % Ja es posen en la Taula de continguts.
 \input{Chapters/Introduccio}
+
+\chapter{Algorismes}
+\input{Chapters/Algorismes.tex}
 
 \printbibliography
 \capitol{Bibliografia}
