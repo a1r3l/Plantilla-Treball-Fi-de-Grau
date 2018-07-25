@@ -17,6 +17,7 @@
 \usepackage{nameref} %Referències amb el nom que s'ha posat
 \usepackage[chapter]{algorithm} %Que surti el chapert davant del nombre, igual que el lot o lof
 \usepackage[noend]{algpseudocode}
+\usepackage[toc,page]{appendix}
 
 
 \pagestyle{fancy}
@@ -78,5 +79,17 @@
 
 \printbibliography
 \capitol{Bibliografia}
+\cleardoublepage
+
+\pagenumbering{Alph}
+
+\begin{appendices}
+
+\chapter{Anexes}
+
+\input{Chapters/Anexes.tex}
+
+\end{appendices}
 
 \end{document}
+
