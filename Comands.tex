@@ -1,0 +1,15 @@
+\newcommand{\capitol}[1]
+{
+  \addcontentsline{toc}{chapter}{#1} % Per tal d'afegir a la Table of contents, amb el nom Agraïments.
+}
+
+\newcommand{\figura}[4]
+{
+  \begin{figure}[h]
+      \begin{center}
+          \includegraphics[scale=.#3]{#1}
+          \caption{#2}
+          \label{fig:#4}
+      \end{center}
+  \end{figure}
+}

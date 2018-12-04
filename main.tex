@@ -1,58 +1,95 @@
 \documentclass[a4paper,12pt,twoside]{book}
 
 %\usepackage{fontspec} Packages
+\usepackage[catalan]{babel} % Idioma del document en català.
 \usepackage[utf8]{inputenc}
-\usepackage{titlesec}
 \usepackage{emptypage} % Per tal que no surtin els números en les pàgines en blanc.
 \usepackage{blindtext}
-\usepackage[catalan]{babel} % Idioma del document en català.
 \usepackage[tmargin=3cm, lmargin=3cm, rmargin=3cm, bmargin=3cm, marginparsep=0.3cm, marginparwidth=2.4cm]{geometry}
 \usepackage[sorting=none]{biblatex} % Per la bibliografia a més que els números surtin per l'ordre en què apareixen, no en l'ordre que s'ha citat al llarg del document.
+\usepackage{svg} %Imporat imatges amb l'extenció svg
+\usepackage{pdfpages} %Importar la portada en pdf
+\usepackage{hyperref} %Les referències quan cliques funcionen
+\usepackage{import}
+\usepackage{graphicx}
+\usepackage{subfiles} %Per importar la pàgina del títol
+\usepackage{fancyhdr} %Que quedi maco
+\usepackage{nameref} %Referències amb el nom que s'ha posat
+\usepackage[chapter]{algorithm} %Que surti el chapert davant del nombre, igual que el lot o lof
+\usepackage[noend]{algpseudocode}
+\usepackage[toc,page]{appendix}
 
-%\setmainfont{Arial}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\leftmark}
+\fancyhead[RE,LO]{\thepage}
 
 \pagenumbering{gobble}
 
+%COMANDS comandes personalitzades
+
+\input{Comands.tex}
+
 %DEFINICIONS per tal de no haver d'escriure-ho cada vegada.
 
-\def\upf{Universitat Pompeu Fabra }
+\input{Acronyms.tex}
 
 %BIBLIOGRAFIA
 
 \addbibresource{bibliografia.bib}
 
-%Titols
-
-\title{\textbf{Títol}}
-
-\author{Alumne \\ Tutor}
-
-\date{\today \\ \upf}
-
-% COMENÇA EL REPORT
 
 \begin{document}
 
-\maketitle % Crea la pàgina del títol amb les etiquetes de sobra, \title, \author i \date.
+\includepdf[pages=-]{portada}
+
+%TITOL
+\subfile{Titol}
 
 \cleardoublepage % Neteja de pàgines, en ser un llibre ja la deixa en blanc en cas de necessitat.
 
 \pagenumbering{Roman} % Nombre de pàgina en números Romans.
 
 \chapter*{Agraïments} %* Per tal que no surti en el Table of contents, així la primera secció començarà amb la Introducció.
-\addcontentsline{toc}{chapter}{Agraïments} % Per tal d'afegir a la Table of contents, amb el nom Agraïments.
+\capitol{Agraïments} %Comanda nova, mirar a l'arxiu de Comands
 \input{Chapters/Agraiments} % Carpeta i arxiu el qual es vol afegir, així el main només queda amb l'esquelet i el contingut va repartir en els diferents arxius.
 
 \tableofcontents % Taula de continguts
 
-\cleardoublepage
+\listoffigures
+\capitol{Índex de figures}
+
+\listoftables
+\capitol{Índex de taules}
+
+\listofalgorithms
+\capitol{List of algorithms}
+
+\printacronyms[include-classes=abbrev,name=Notations,heading=chapter*]
+\capitol{Abbreviations}
 
 \pagenumbering{arabic} % Nombre de la pàgina en números Àrabs.
 
 \chapter{Introducció} % Ja es posen en la Taula de continguts.
 \input{Chapters/Introduccio}
 
+\chapter{Algorismes}
+\input{Chapters/Algorismes.tex}
+
 \printbibliography
-\addcontentsline{toc}{chapter}{Bibliografia}
+\capitol{Bibliografia}
+\cleardoublepage
+
+\pagenumbering{Alph}
+
+\begin{appendices}
+
+\chapter{Anexes}
+
+\input{Chapters/Anexes.tex}
+
+\end{appendices}
 
 \end{document}
+
