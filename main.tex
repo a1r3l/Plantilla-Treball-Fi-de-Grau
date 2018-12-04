@@ -5,7 +5,7 @@
 \usepackage{titlesec}
 \usepackage{emptypage} % Per tal que no surtin els números en les pàgines en blanc.
 \usepackage{blindtext}
-\usepackage[catalan]{babel} % Idioma del document en català.
+\usepackage[spanish]{babel} % Idioma del document en español.
 \usepackage[tmargin=3cm, lmargin=3cm, rmargin=3cm, bmargin=3cm, marginparsep=0.3cm, marginparwidth=2.4cm]{geometry}
 \usepackage[sorting=none]{biblatex} % Per la bibliografia a més que els números surtin per l'ordre en què apareixen, no en l'ordre que s'ha citat al llarg del document.
 
@@ -23,9 +23,9 @@
 
 %Titols
 
-\title{\textbf{Títol}}
+\title{\textbf{Plan de Negocio de GesTeam}}
 
-\author{Alumne \\ Tutor}
+\author{Aurel Ioan Patrutiu \\ Jordi Bosch Garcia}
 
 \date{\today \\ \upf}
 
@@ -39,9 +39,21 @@
 
 \pagenumbering{Roman} % Nombre de pàgina en números Romans.
 
-\chapter*{Agraïments} %* Per tal que no surti en el Table of contents, així la primera secció començarà amb la Introducció.
-\addcontentsline{toc}{chapter}{Agraïments} % Per tal d'afegir a la Table of contents, amb el nom Agraïments.
-\input{Chapters/Agraiments} % Carpeta i arxiu el qual es vol afegir, així el main només queda amb l'esquelet i el contingut va repartir en els diferents arxius.
+\chapter*{Dedicatória}
+\addcontentsline{toc}{chapter}{Dedicatória}
+\input{Chapters/Dedicatoria}
+
+\chapter*{Agradecimientos}
+\addcontentsline{toc}{chapter}{Agradecimientos}
+\input{Chapters/Agradecimientos}
+
+\chapter*{Resumen}
+\addcontentsline{toc}{chapter}{Resumen}
+\input{Chapters/Resumen}
+
+\chapter*{Prefacio}
+\addcontentsline{toc}{chapter}{Prefacio}
+\input{Chapters/Prefacio}
 
 \tableofcontents % Taula de continguts
 
@@ -49,10 +61,10 @@
 
 \pagenumbering{arabic} % Nombre de la pàgina en números Àrabs.
 
-\chapter{Introducció} % Ja es posen en la Taula de continguts.
-\input{Chapters/Introduccio}
+\chapter{Introducción} % Ja es posen en la Taula de continguts.
+\input{Chapters/Introduccion}
 
 \printbibliography
-\addcontentsline{toc}{chapter}{Bibliografia}
+\addcontentsline{toc}{chapter}{Bibliografía}
 
 \end{document}
